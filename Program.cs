@@ -8,7 +8,7 @@ var builder = WebApplication.CreateBuilder(args);
 DotNetEnv.Env.Load(); // requires DotNetEnv NuGet package
 
 // Replace connection string manually from env
-var connectionString = Environment.GetEnvironmentVariable("CONNECTION_STRING");
+var connectionString = Environment.GetEnvironmentVariable("PG_MESSAGES_CONNECTION_STRING");
 
 if (connectionString == null)
 {
