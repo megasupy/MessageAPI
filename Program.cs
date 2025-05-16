@@ -10,10 +10,15 @@ DotNetEnv.Env.Load(); // requires DotNetEnv NuGet package
 // Replace connection string manually from env
 var connectionString = Environment.GetEnvironmentVariable("CONNECTION_STRING");
 
+if (connectionString == null)
+{
+    throw new Exception("No environment variable for connection string found!");
+}
+
 // Add services to the container.
 builder.Services.AddControllers();
 builder.Services.AddDbContext<SalesDbContext>(options =>
-    options.UseNpgsql(builder.Configuration.GetConnectionString(connectionString)));
+    options.UseNpgsql(connectionString));
 
 // Register the repository services (ensure this matches your actual repository class)
 builder.Services.AddScoped<IRepository<Message, Guid>, MessageRepository>();
