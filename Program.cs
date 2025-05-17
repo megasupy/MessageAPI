@@ -13,7 +13,7 @@ string connectionString = Environment.GetEnvironmentVariable("PG_MESSAGES_CONNEC
 
 // Add services to the container.
 builder.Services.AddControllers();
-builder.Services.AddDbContext<SalesDbContext>(options =>
+builder.Services.AddDbContext<MessageDbContext>(options =>
     options.UseNpgsql(connectionString));
 
 // Register the repository services (ensure this matches your actual repository class)

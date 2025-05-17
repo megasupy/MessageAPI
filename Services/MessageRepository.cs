@@ -5,9 +5,9 @@ namespace api.Services;
 
 public class MessageRepository : IRepository<Message, Guid> 
 {
-    private SalesDbContext context;
+    private MessageDbContext context;
 
-    public MessageRepository(SalesDbContext c)
+    public MessageRepository(MessageDbContext c)
     {
         context = c;
     }
