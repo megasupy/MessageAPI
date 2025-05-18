@@ -34,9 +34,8 @@ WebApplication app = builder.Build();
 if (app.Environment.IsDevelopment())
 {
     app.MapOpenApi(); // Show errors to end user when in development mode.
-
+    app.UseHttpsRedirection(); // use nginx in prod
 }
-app.UseHttpsRedirection(); // make sure you have ssl set up.
 app.UseCors("AllowAll");
 app.MapControllers();
 
