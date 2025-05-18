@@ -18,6 +18,7 @@ namespace api.Controllers
         [Route("api/[controller]")]
         public IActionResult Get()
         {
+            return Ok("Get disabled for now");
             var messages = repository.Get();
             return Ok(messages);
         }
