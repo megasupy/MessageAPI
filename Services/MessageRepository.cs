@@ -34,6 +34,7 @@ public class MessageRepository : IRepository<Message, Guid>
     }
     public IEnumerable Get()
     {
+        throw new Exception("Get requests disabled for your IP"); // fix this later.
         return context.Messages.ToList();
     }
 
